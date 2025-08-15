@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Data GPT API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/status"
+      }
+    },
+    {
+      "name": "Privacy",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/privacy"
+      }
+    },
+    {
+      "name": "Web Search (DDG)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/web/search",
+        "urlencoded": [
+          {
+            "key": "q",
+            "value": "best puppy training tips"
+          },
+          {
+            "key": "provider",
+            "value": "duckduckgo"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gemini Complete",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"prompt\":\"List 3 tips for training puppies\"}"
+        },
+        "url": "{{baseUrl}}/llm/gemini/complete"
+      }
+    },
+    {
+      "name": "Orchestrate Run",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"task\":\"Draft a kickoff plan for Pets content hub\"}"
+        },
+        "url": "{{baseUrl}}/orchestrate/run"
+      }
+    },
+    {
+      "name": "Env Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/envcheck"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8787"
+    }
+  ]
+}
